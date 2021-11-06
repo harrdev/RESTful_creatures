@@ -1,0 +1,15 @@
+<form action="/creatures" method="GET">
+    <label for="nameFilter">Filter by Name</label>
+    <input type="text" name="nameFilter" id="nameFilter">
+    <input type="submit">
+</form>
+<ul>
+    <% creatureData.forEach((creature, index) =>{ %> 
+        <li><h2><%= creature.type %></h2><img src=<%= creature.img_url %> style="width:300px;height:200px;">
+            <form action="/creatures/<%=index%>/?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+    <% }) %>
+</ul>
+
